@@ -24,8 +24,6 @@ RUN \
         musl=1.2.5-3.1~deb13u1 \
         nginx=1.26.3-3+deb13u7 \
     \
-    && dpkg --install /tmp/grafana.deb \
-    \
     && if [ "${BUILD_ARCH}" = "amd64" ]; then \
         apt-get install -y --no-install-recommends \
             libasound2t64=1.2.14-1 \
@@ -49,8 +47,19 @@ RUN \
             libxrender1=1:0.9.12-1 \
             libxshmfence1=1.3.3-1 \
             libxss1=1:1.2.3-1+b3 \
-            libxtst6=2:1.2.5-1 \
-        && grafana-cli plugins install "grafana-image-renderer" "${GRAFANA_IMAGE_RENDERER_VERSION#v}"; \
+            libxtst6=2:1.2.5-1; \
+    fi \
+    \
+    # Grafana 13 declares "Depends: systemd", which this s6 based image does not
+    # provide. Its maintainer scripts only call systemctl on an upgrade, guarded
+    # by "command -v systemctl", so a fresh install does not need it. This must
+    # run after every apt-get call: the unsatisfied dependency it leaves behind
+    # makes apt refuse to resolve anything afterwards.
+    && dpkg --install --force-depends /tmp/grafana.deb \
+    \
+    && if [ "${BUILD_ARCH}" = "amd64" ]; then \
+        grafana-cli --homepath /usr/share/grafana plugins install \
+            "grafana-image-renderer" "${GRAFANA_IMAGE_RENDERER_VERSION#v}"; \
     fi \
     \
     && rm -fr \
