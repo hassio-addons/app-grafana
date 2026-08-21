@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:9.1.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:9.4.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -21,21 +21,21 @@ RUN \
         fonts-noto-cjk=1:20240730+repack1-1 \
         libfontconfig1=2.15.0-2.3 \
         memcached=1.6.38-1 \
-        musl=1.2.5-3 \
-        nginx=1.26.3-3+deb13u1 \
+        musl=1.2.5-3.1~deb13u1 \
+        nginx=1.26.3-3+deb13u7 \
     \
     && dpkg --install /tmp/grafana.deb \
     \
     && if [ "${BUILD_ARCH}" = "amd64" ]; then \
         apt-get install -y --no-install-recommends \
             libasound2t64=1.2.14-1 \
-            libcups2t64=2.4.10-3+deb13u1 \
+            libcups2t64=2.4.10-3+deb13u2 \
             libdbus-1-3=1.16.2-2 \
             libdrm-amdgpu1=2.4.124-2 \
-            libgbm1=25.0.7-2 \
-            libglib2.0-0t64=2.84.4-3~deb13u1 \
+            libgbm1=25.0.7-2+deb13u1 \
+            libglib2.0-0t64=2.84.4-3~deb13u3 \
             libgtk-4-1=4.18.6+ds-2 \
-            libnss3=2:3.110-1 \
+            libnss3=2:3.110-1+deb13u4 \
             libx11-6=2:1.8.12-1 \
             libx11-xcb1=2:1.8.12-1 \
             libxcb-dri3-0=1.17.0-2+b1 \
