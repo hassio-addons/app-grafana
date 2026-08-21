@@ -11,7 +11,7 @@ declare ingress_entry
 declare keyfile
 
 
-port=$(bashio::addon.port 80)
+port=$(bashio::app.port 80)
 if bashio::var.has_value "${port}"; then
     bashio::config.require.ssl
 
@@ -26,7 +26,7 @@ if bashio::var.has_value "${port}"; then
     else
         mv /etc/nginx/servers/direct.disabled /etc/nginx/servers/direct.conf
     fi
-    ingress_entry=$(bashio::addon.ingress_entry)
+    ingress_entry=$(bashio::app.ingress_entry)
     sed -i "s#%%ingress_entry%%#${ingress_entry}#g" /etc/nginx/servers/direct.conf
 fi
 
