@@ -1,11 +1,11 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: Grafana
+# Home Assistant Community App: Grafana
 # Runs the Grafana Server
 # ==============================================================================
 declare -a options
-declare -a unsigned_plugins
+declare unsigned_plugins
 declare name
 declare value
 

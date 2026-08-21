@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: Grafana
+# Home Assistant Community App: Grafana
 
 The analytics platform for all your metrics.
 
@@ -7,34 +7,34 @@ no matter where they are stored. Create, explore, and share dashboards. Learn
 about your Home Automation system using sexy and compelling graphs, and other
 data visualizations.
 
-Combine this add-on with the InfluxDB add-on to get insanely powerful
+Combine this app with the InfluxDB app to get insanely powerful
 insights to your home.
 
 ## Installation
 
-The installation of this add-on is pretty straightforward and not different in
-comparison to installing any other Home Assistant add-on.
+The installation of this app is pretty straightforward and not different in
+comparison to installing any other Home Assistant app.
 
-1. Click the Home Assistant My button below to open the add-on on your Home
+1. Click the Home Assistant My button below to open the app on your Home
    Assistant instance.
 
-   [![Open this add-on in your Home Assistant instance.][addon-badge]][addon]
+   [![Open this app in your Home Assistant instance.][addon-badge]][addon]
 
-1. Click the "Install" button to install the add-on.
-1. Start the "Grafana" add-on.
+1. Click the "Install" button to install the app.
+1. Start the "Grafana" app.
 1. Check the logs of the "Grafana" to see if everything went well.
 1. Open the Web UI.
 
-**Note**: As the addon now supports both Ingress and direct access, the default
+**Note**: As the app now supports both Ingress and direct access, the default
 `admin` user has a password of `hassio`. **Due to the implementation the
 password cannot be changed, however you can delete and create a new user, if so
 please ensure to update the `grafana_ingress_user` option.**
 
 ## Configuration
 
-**Note**: _Remember to restart the add-on when the configuration is changed._
+**Note**: _Remember to restart the app when the configuration is changed._
 
-Example add-on configuration:
+Example app configuration:
 
 ```yaml
 log_level: info
@@ -51,7 +51,7 @@ env_vars:
 
 ### Option: `log_level`
 
-The `log_level` option controls the level of log output by the addon and can
+The `log_level` option controls the level of log output by the app and can
 be changed to be more or less verbose, which might be useful when you are
 dealing with an unknown issue. Possible values are:
 
@@ -60,7 +60,7 @@ dealing with an unknown issue. Possible values are:
 - `info`: Normal (usually) interesting events.
 - `warning`: Exceptional occurrences that are not errors.
 - `error`: Runtime errors that do not require immediate action.
-- `fatal`: Something went terribly wrong. Add-on becomes unusable.
+- `fatal`: Something went terribly wrong. App becomes unusable.
 
 Please note that each level automatically includes log messages from a
 more severe level, e.g., `debug` also shows `info` messages. By default,
@@ -79,7 +79,7 @@ Grafana setup. For a list of available plugins, see:
 
 <https://grafana.com/plugins>
 
-**Note**: _Adding plugins will result in a longer start-up for the add-on._
+**Note**: _Adding plugins will result in a longer start-up for the app._
 
 ### Option: `custom_plugins`
 
@@ -109,10 +109,10 @@ documentation:
 
 **Note**: _Only environment variables starting with `GF_` are accepted.\_
 
-## Using it with the InfluxDB Community add-on
+## Using it with the InfluxDB Community app
 
 Grafana does not come out of the box pre-configured, but letting it interact
-with the community [InfluxDB add-on][influxdb-addon] is pretty easy. Please,
+with the community [InfluxDB app][influxdb-addon] is pretty easy. Please,
 follow the instructions from the on how to [create a database][create-db]
 for Home Assistant.
 
@@ -137,7 +137,7 @@ for Home Assistant.
 ## Anonymous Access
 
 Anonymous access on a local network is possible by exposing the port in the
-add-on configuration, along with setting the following environment variables:
+app configuration, along with setting the following environment variables:
 
 ```yaml
 env_vars:
@@ -152,7 +152,7 @@ env_vars:
 It is not possible to enable anonymous or non-administrator access with Home
 Assistant Cloud. This includes embedding Grafana resources with an iframe or
 rendered image inside of a dashboard. For more details see
-[Anonymous login not working, Grafana add-on 3.0.0 #55](https://github.com/hassio-addons/addon-grafana/issues/55).
+[Anonymous login not working, Grafana app 3.0.0 #55](https://github.com/hassio-addons/app-grafana/issues/55).
 
 ## Known issues and limitations
 
@@ -179,7 +179,7 @@ Got questions?
 
 You have several options to get them answered:
 
-- The [Home Assistant Community Add-ons Discord chat server][discord] for add-on
+- The [Home Assistant Community Apps Discord chat server][discord] for app
   support and feature requests.
 - The [Home Assistant Discord chat server][discord-ha] for general Home
   Assistant discussions and questions.
@@ -199,7 +199,7 @@ check [the contributor's page][contributors].
 
 MIT License
 
-Copyright (c) 2018-2025 Franck Nijhof
+Copyright (c) 2018-2026 Franck Nijhof
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -221,14 +221,14 @@ SOFTWARE.
 
 [addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_grafana&repository_url=https%3A%2F%2Fgithub.com%2Fhassio-addons%2Frepository
-[contributors]: https://github.com/hassio-addons/addon-grafana/graphs/contributors
+[contributors]: https://github.com/hassio-addons/app-grafana/graphs/contributors
 [create-db]: https://github.com/hassio-addons/addon-influxdb/blob/main/influxdb/DOCS.md#integrating-into-home-assistant
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord]: https://discord.me/hassioaddons
 [forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-grafana/54674?u=frenck
 [frenck]: https://github.com/frenck
 [influxdb-addon]: https://github.com/hassio-addons/addon-influxdb
-[issue]: https://github.com/hassio-addons/addon-grafana/issues
+[issue]: https://github.com/hassio-addons/app-grafana/issues
 [reddit]: https://reddit.com/r/homeassistant
-[releases]: https://github.com/hassio-addons/addon-grafana/releases
+[releases]: https://github.com/hassio-addons/app-grafana/releases
 [semver]: https://semver.org/spec/v2.0.0.html

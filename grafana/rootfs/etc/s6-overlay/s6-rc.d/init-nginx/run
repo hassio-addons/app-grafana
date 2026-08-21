@@ -1,14 +1,13 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: grafana
+# Home Assistant Community App: grafana
 # Configures NGINX
 # ==============================================================================
 declare port
 declare certfile
 declare grafana_user
 declare ingress_entry
-declare ingress_interface
 declare keyfile
 
 
