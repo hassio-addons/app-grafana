@@ -46,7 +46,7 @@ fi
 secret=$(</data/secret)
 sed -i "s/secret_key.*/secret_key = ${secret}/g" "${CONFIG}"
 
-ingress_entry=$(bashio::addon.ingress_entry)
+ingress_entry=$(bashio::app.ingress_entry)
 sed -i "s#%%ingress_entry%%#${ingress_entry}#g" "${CONFIG}"
 
 # Install user configured/requested Grafana plugins
