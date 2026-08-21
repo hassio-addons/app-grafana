@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: Grafana
+# Home Assistant Community App: Grafana
 # Runs the memcached Server
 # ==============================================================================
 declare -a options

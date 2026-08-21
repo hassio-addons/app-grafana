@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: Grafana
+# Home Assistant Community App: Grafana
 # Configures Grafana
 # ==============================================================================
 readonly CONFIG="/etc/grafana/grafana.ini"
@@ -13,7 +13,7 @@ declare log_level
 ln -s "/homeassistant" "/config" \
     || bashio::log.warning "Failed linking Home Assistant configuration alias"
 
-# Configures Grafana with the add-on log level
+# Configures Grafana with the app log level
 log_level="Info"
 if bashio::config.exists 'log_level'; then
     case "$(bashio::string.lower "$(bashio::config 'log_level')")" in
@@ -63,7 +63,7 @@ if bashio::config.has_value 'custom_plugins'; then
         name=$(bashio::config "custom_plugins[${plugin}].name")
         url=$(bashio::config "custom_plugins[${plugin}].url")
         bashio::log.debug "Installing custom plugin ${name} from ${url}"
-        grafana-cli --pluginUrl ${url} plugins install $name \
+        grafana-cli --pluginUrl "${url}" plugins install "${name}" \
             || bashio::exit.nok "Failed installing Grafana custom plugin: ${name} from: ${url}"
     done
 fi
