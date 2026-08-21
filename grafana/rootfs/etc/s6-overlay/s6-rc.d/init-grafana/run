@@ -5,6 +5,7 @@
 # Configures Grafana
 # ==============================================================================
 readonly CONFIG="/etc/grafana/grafana.ini"
+readonly HOMEPATH="/usr/share/grafana"
 declare ingress_entry
 declare log_level
 
@@ -52,7 +53,7 @@ sed -i "s#%%ingress_entry%%#${ingress_entry}#g" "${CONFIG}"
 # Install user configured/requested Grafana plugins
 if bashio::config.has_value 'plugins'; then
     for plugin in $(bashio::config 'plugins'); do
-        grafana-cli plugins install "$plugin" \
+        grafana-cli --homepath "${HOMEPATH}" plugins install "$plugin" \
             || bashio::exit.nok "Failed installing Grafana plugin: ${plugin}"
     done
 fi
@@ -63,7 +64,8 @@ if bashio::config.has_value 'custom_plugins'; then
         name=$(bashio::config "custom_plugins[${plugin}].name")
         url=$(bashio::config "custom_plugins[${plugin}].url")
         bashio::log.debug "Installing custom plugin ${name} from ${url}"
-        grafana-cli --pluginUrl "${url}" plugins install "${name}" \
+        grafana-cli --homepath "${HOMEPATH}" --pluginUrl "${url}" \
+            plugins install "${name}" \
             || bashio::exit.nok "Failed installing Grafana custom plugin: ${name} from: ${url}"
     done
 fi
