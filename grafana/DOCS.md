@@ -110,12 +110,11 @@ documentation:
 
 **Note**: _Only environment variables starting with `GF_` are accepted._
 
-## Using it with the InfluxDB Community app
+## Using it with InfluxDB
 
 Grafana does not come out of the box pre-configured, but letting it interact
-with the community [InfluxDB app][influxdb-addon] is pretty easy. Please
-follow their instructions on how to [create a database][create-db] for Home
-Assistant.
+with InfluxDB is pretty easy. Make sure you have an InfluxDB database for Home
+Assistant set up first, then:
 
 1. Create a new user for Grafana on InfluxDB
    (InfluxDB Admin -> Users and "+ Create User")
@@ -238,13 +237,11 @@ SOFTWARE.
 [addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_grafana&repository_url=https%3A%2F%2Fgithub.com%2Fhassio-addons%2Frepository
 [contributors]: https://github.com/hassio-addons/app-grafana/graphs/contributors
-[create-db]: https://github.com/hassio-addons/addon-influxdb/blob/main/influxdb/DOCS.md#integrating-into-home-assistant
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord]: https://discord.me/hassioaddons
 [forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-grafana/54674?u=frenck
 [frenck]: https://github.com/frenck
 [image-rendering]: https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/
-[influxdb-addon]: https://github.com/hassio-addons/addon-influxdb
 [issue]: https://github.com/hassio-addons/app-grafana/issues
 [reddit]: https://reddit.com/r/homeassistant
 [releases]: https://github.com/hassio-addons/app-grafana/releases
