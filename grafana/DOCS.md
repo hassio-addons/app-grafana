@@ -8,7 +8,7 @@ about your Home Automation system using sexy and compelling graphs, and other
 data visualizations.
 
 Combine this app with the InfluxDB app to get insanely powerful
-insights to your home.
+insights into your home.
 
 ## Installation
 
@@ -22,7 +22,7 @@ comparison to installing any other Home Assistant app.
 
 1. Click the "Install" button to install the app.
 1. Start the "Grafana" app.
-1. Check the logs of the "Grafana" to see if everything went well.
+1. Check the logs of the "Grafana" app to see if everything went well.
 1. Open the Web UI.
 
 **Note**: As the app now supports both Ingress and direct access, the default
@@ -58,6 +58,7 @@ dealing with an unknown issue. Possible values are:
 - `trace`: Show every detail, like all called internal functions.
 - `debug`: Shows detailed debug information.
 - `info`: Normal (usually) interesting events.
+- `notice`: Normal but significant events.
 - `warning`: Exceptional occurrences that are not errors.
 - `error`: Runtime errors that do not require immediate action.
 - `fatal`: Something went terribly wrong. App becomes unusable.
@@ -69,23 +70,23 @@ you are troubleshooting.
 
 ### Option: `grafana_ingress_user`
 
-When using Ingress grafana will automatically log in by default with a username
-of `admin`. If a different user is required this option can be set.
+When using Ingress, Grafana automatically logs in with the `admin` user by
+default. If a different user is required, this option can be set.
 
 ### Option: `plugins`
 
 Allows you to specify additional Grafana plugins to be installed to your
 Grafana setup. For a list of available plugins, see:
 
-<https://grafana.com/plugins>
+<https://grafana.com/grafana/plugins/>
 
 **Note**: _Adding plugins will result in a longer start-up for the app._
 
 ### Option: `custom_plugins`
 
 Allows you to specify additional Grafana custom plugins to be installed to your
-Grafana setup from an URL.
-You must specify the property `url` to the plugin configuration.
+Grafana setup from a URL.
+You must specify the `url` property in the plugin configuration.
 
 If you want to install unsigned plugins, you must also set the `unsigned` property to `true`:
 
@@ -100,37 +101,37 @@ custom_plugins:
 
 This option allows you to tweak every aspect of Grafana by setting
 configuration options using environment variables. See the example at the
-start of this chapter to get an idea of how the configuration looks.
+start of this section to get an idea of how the configuration looks.
 
 For more information about using these variables, see the official Grafana
 documentation:
 
-<http://docs.grafana.org/installation/configuration/#using-environment-variables>
+<https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#override-configuration-with-environment-variables>
 
-**Note**: _Only environment variables starting with `GF_` are accepted.\_
+**Note**: _Only environment variables starting with `GF_` are accepted._
 
 ## Using it with the InfluxDB Community app
 
 Grafana does not come out of the box pre-configured, but letting it interact
-with the community [InfluxDB app][influxdb-addon] is pretty easy. Please,
-follow the instructions from the on how to [create a database][create-db]
-for Home Assistant.
+with the community [InfluxDB app][influxdb-addon] is pretty easy. Please
+follow their instructions on how to [create a database][create-db] for Home
+Assistant.
 
 1. Create a new user for Grafana on InfluxDB
    (InfluxDB Admin -> Users and "+ Create User")
-1. Login into Grafana
+1. Log in to Grafana
 1. Create a new datasource:
 
-- Name: Anything you want, e.g., Home Assistant
-- Type: InfluxDB
-- HTTP > URL: `http://a0d7b954-influxdb:8086`
-- HTTP > Access: Server (Default)
-- Auth: (leave them all disabled)
-- InfluxDB Details > Database: _Your Home Assistant InfluxDB database_,
-  e.g., `homeassistant`
-- InfluxDB Details > User: _Grafana InfluxDB username defined in step 1_
-- InfluxDB Details > Password: _Grafana InfluxDB user password defined_
-  _in step 1_
+   - Name: Anything you want, e.g., Home Assistant
+   - Type: InfluxDB
+   - HTTP > URL: `http://a0d7b954-influxdb:8086`
+   - HTTP > Access: Server (Default)
+   - Auth: (leave them all disabled)
+   - InfluxDB Details > Database: _Your Home Assistant InfluxDB database_,
+     e.g., `homeassistant`
+   - InfluxDB Details > User: _Grafana InfluxDB username defined in step 1_
+   - InfluxDB Details > Password: _Grafana InfluxDB user password defined
+     in step 1_
 
 1. Hit Save & Test
 
@@ -150,8 +151,8 @@ env_vars:
 ```
 
 It is not possible to enable anonymous or non-administrator access with Home
-Assistant Cloud. This includes embedding Grafana resources with an iframe or
-rendered image inside of a dashboard. For more details see
+Assistant Cloud. This includes embedding Grafana resources in an iframe
+inside a dashboard. For more details see
 [Anonymous login not working, Grafana app 3.0.0 #55](https://github.com/hassio-addons/app-grafana/issues/55).
 
 ## Image rendering
