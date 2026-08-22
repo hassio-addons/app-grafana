@@ -154,11 +154,26 @@ Assistant Cloud. This includes embedding Grafana resources with an iframe or
 rendered image inside of a dashboard. For more details see
 [Anonymous login not working, Grafana app 3.0.0 #55](https://github.com/hassio-addons/app-grafana/issues/55).
 
-## Known issues and limitations
+## Image rendering
 
-- `To render a panel image, you must install the Grafana Image Renderer plugin.`
-  This message is shown on ARM devices, like a Raspberry Pi. The Grafana Image
-  Renderer plugin is not available for these devices.
+This app does not include image rendering. Grafana used to offer this as the
+Grafana Image Renderer plugin, which was deprecated in September 2025 and, as
+of Grafana 13, is no longer loaded at all.
+
+Rendering is now provided by a separate service that you run alongside Grafana.
+If you need rendered panel or dashboard images, run that service and point this
+app at it using the `env_vars` option:
+
+```yaml
+env_vars:
+  - name: GF_RENDERING_SERVER_URL
+    value: http://your-renderer-host:8081/render
+  - name: GF_RENDERING_CALLBACK_URL
+    value: http://homeassistant.local:3000/
+```
+
+See the Grafana documentation on [image rendering][image-rendering] for how to
+deploy and configure the service.
 
 ## Changelog & Releases
 
@@ -227,6 +242,7 @@ SOFTWARE.
 [discord]: https://discord.me/hassioaddons
 [forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-grafana/54674?u=frenck
 [frenck]: https://github.com/frenck
+[image-rendering]: https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/
 [influxdb-addon]: https://github.com/hassio-addons/addon-influxdb
 [issue]: https://github.com/hassio-addons/app-grafana/issues
 [reddit]: https://reddit.com/r/homeassistant
