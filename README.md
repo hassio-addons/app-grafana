@@ -26,7 +26,7 @@ about your Home Automation system using sexy and compelling graphs, and other
 data visualizations.
 
 Combine this app with the InfluxDB app to get insanely powerful
-insights to your home.
+insights into your home.
 
 [:books: Read the full app documentation][docs]
 
@@ -43,7 +43,7 @@ You have several options to get them answered:
 - The Home Assistant [Community Forum][forum].
 - Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
 
-You could also [open an issue here][issue] GitHub.
+You could also [open an issue here][issue] on GitHub.
 
 ## Contributing
 
@@ -60,11 +60,11 @@ Thank you for being involved! :heart_eyes:
 The original setup of this repository is by [Franck Nijhof][frenck].
 
 For a full list of all authors and contributors,
-check [the contributor's page][contributors].
+check [the contributors' page][contributors].
 
 ## We have got some Home Assistant apps for you
 
-Want some more functionality to your Home Assistant instance?
+Want more functionality for your Home Assistant instance?
 
 We have created multiple apps for Home Assistant. For a full list, check out
 our [GitHub Repository][repository].

@@ -8,6 +8,7 @@ readonly CONFIG="/etc/grafana/grafana.ini"
 readonly HOMEPATH="/usr/share/grafana"
 declare ingress_entry
 declare log_level
+declare secret
 
 # Symlink the new style config directory to the old one. People might have
 # configurations for Grafana that access the database via the old path.

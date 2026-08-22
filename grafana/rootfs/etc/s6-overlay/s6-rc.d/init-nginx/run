@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community App: grafana
+# Home Assistant Community App: Grafana
 # Configures NGINX
 # ==============================================================================
 declare port
@@ -9,7 +9,6 @@ declare certfile
 declare grafana_user
 declare ingress_entry
 declare keyfile
-
 
 port=$(bashio::app.port 80)
 if bashio::var.has_value "${port}"; then
