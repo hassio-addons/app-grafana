@@ -9,10 +9,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "//Dockerfile$/",
-        "//build.yaml$/"
-      ],
+      "managerFilePatterns": ["//Dockerfile$/", "//build.yaml$/"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+",
@@ -22,9 +19,7 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "//Dockerfile$/"
-      ],
+      "managerFilePatterns": ["//Dockerfile$/"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "\\s\\s(?<package>[a-z0-9][a-z0-9.+-]+)=(?<currentValue>[a-z0-9-:_+~.]+)\\s+"
@@ -35,9 +30,7 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "//Dockerfile$/"
-      ],
+      "managerFilePatterns": ["//Dockerfile$/"],
       "matchStrings": [
         "ARG GRAFANA_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
       ],
