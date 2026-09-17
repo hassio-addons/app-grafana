@@ -19,7 +19,7 @@ RUN \
     && apt-get install -y --no-install-recommends \
         libfontconfig1=2.15.0-2.3 \
         memcached=1.6.38-1 \
-        nginx=1.26.3-3+deb13u7 \
+        nginx=1.26.3-3+deb13u9 \
     \
     # Grafana 13 declares "Depends: systemd", which this s6 based image does not
     # provide. Its maintainer scripts only call systemctl on an upgrade, guarded
