@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:9.5.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:9.5.1
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -19,7 +19,7 @@ RUN \
     && apt-get install -y --no-install-recommends \
         libfontconfig1=2.15.0-2.3 \
         memcached=1.6.38-1 \
-        nginx=1.26.3-3+deb13u9 \
+        nginx=1.26.3-3+deb13u10 \
     \
     # Grafana 13 declares "Depends: systemd", which this s6 based image does not
     # provide. Its maintainer scripts only call systemctl on an upgrade, guarded
